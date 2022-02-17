@@ -1,13 +1,15 @@
-import './App.css';
+import Home from './page/home';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 function App() {
-    return (
-        <div className="App">
-            <div className="pokelister-container">
-                # PokeLister
-            </div>
-        </div>
-    );
+  return (
+    <>
+      <Header />
+      <Home />
+      <Footer />
+    </>
+  )
 }
 
 export default App;
