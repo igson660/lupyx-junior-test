@@ -1,7 +1,11 @@
-export const getPokemons = async () => {
-const data = fetch("https://pokeapi.co/api/v2/ability/?offset=0&limit=25");
+export const getPokemons = async (data) => {
+  const offSet = data ? data : 0
+  try {
+    const data = await fetch(`https://pokeapi.co/api/v2/ability/?offset=${offSet}&limit=25`);
+    const { results } = await data.json();
+    return results;
 
-const { results } = await data
-
-console.log(results);
+  } catch(error) {
+    return error.message
+  }
 }
