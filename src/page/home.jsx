@@ -1,25 +1,44 @@
 import React, { useEffect, useState } from 'react';
-import { getPokemons, getImagePokemons } from "../components/hook/servive";
+import {
+  getPokemons,
+  // getImagePokemons
+} from "../components/hook/servive";
+import Pagination from '../components/pagination/Pagination';
 
 const Home = () => {
-  const [pokemons, setPokemons] = useState([])
-  const [image, setImage] = useState()
+  const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
-    getPokemons().then((data) => setPokemons(data))
-    getImagePokemons().then((data) => setImage(data))
+    if(pokemons.length <= 0) getPokemons().then((data) => setPokemons(data));
+
   }, [pokemons]);
+  
+  // getImagePokemons(100).then((data) => data);
 
   return(
     <>
-      {
-        pokemons.map(({ name}, index) => (
-          < div key={index} >
-            <p>{  name }</p>
-            <img src={ image } alt={ name } />
-          </div >
-        ))
-      }
+      <table>
+        <thead>
+          <tr>
+            <th>Pókemon Name</th>
+            <th>Pókemon Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            pokemons.length > 0 && pokemons.map(({ name }, index) => (
+              < tr key={index} >
+                <td>{  name }</td>
+                {/* <img src={ image } alt={ name } /> */}
+              </tr >
+            ))
+          }
+        </tbody>
+      </table>
+      <Pagination
+        pokemons={ pokemons }
+        setPokemons={ setPokemons }
+      />
     </>
   );
 }

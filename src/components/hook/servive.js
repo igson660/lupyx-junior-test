@@ -11,10 +11,9 @@ export const getPokemons = async (data) => {
   }
 }
 
-export const getImagePokemons = async () => {
-
+export const getImagePokemons = async (id) => {
   try {
-    const data = await fetch(`https://pokeapi.co/api/v2/pokemon-form/2dddd/`);
+    const data = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${id}/`);
     const { sprites: { back_default}} = await data.json();
     return back_default;
 
