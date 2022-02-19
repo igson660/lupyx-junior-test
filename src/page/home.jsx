@@ -9,11 +9,9 @@ const Home = () => {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
-    if(pokemons.length <= 0) getPokemons().then((data) => setPokemons(data));
+    if(pokemons.length) getPokemons().then((data) => setPokemons(data));
 
   }, [pokemons]);
-  
-  // getImagePokemons(100).then((data) => data);
 
   return(
     <>
