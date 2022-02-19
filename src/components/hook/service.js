@@ -12,4 +12,3 @@ export const getPokemons = async (offSet=0) => {
     return error.message
   }
 }
-

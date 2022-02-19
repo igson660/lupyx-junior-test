@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getPokemons } from "../components/hook/service";
 import Pagination from '../components/pagination/Pagination';
+import { Container } from "@mui/material";
 
 const Home = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -11,7 +12,7 @@ const Home = () => {
   , [pokemons]);
 
   return(
-    <>
+    <Container>
       <table>
         <thead>
           <tr>
@@ -39,7 +40,7 @@ const Home = () => {
         pokemons={ pokemons }
         setPokemons={ setPokemons }
       />
-    </>
+    </Container>
   );
 }
 

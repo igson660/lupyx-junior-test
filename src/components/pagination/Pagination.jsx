@@ -1,4 +1,7 @@
 import { getPokemons } from "../hook/service"
+import { Container } from "@mui/material";
+import '../../style/pagination.css'
+
 
 const Pagination = ({ setPokemons }) => {
   const hendlePokemons =  async ({ target }) => {
@@ -32,17 +35,16 @@ const Pagination = ({ setPokemons }) => {
       const pokemons = await getPokemons(125);
       setPokemons(pokemons)
     }
-
-
   }
+
   return(
-    <section>
-      <button
-        type="button"
-        onClick={ hendlePokemons }
-      >
-        1
-      </button>
+    <Container>
+        <button
+          type="button"
+          onClick={ hendlePokemons }
+          >
+          1
+        </button>
       <button
           type="button"
           onClick={ hendlePokemons }
@@ -73,7 +75,7 @@ const Pagination = ({ setPokemons }) => {
       >
         6
       </button>
-    </section>
+    </Container>
   )
 }
 
