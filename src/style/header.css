@@ -5,3 +5,8 @@ img {
   align-self: center;
   margin: 10px;
 }
+
+h1 {
+  font-size: 50pt;
+  color: rgb(241, 134, 134);
+}

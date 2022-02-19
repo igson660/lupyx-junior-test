@@ -16,8 +16,8 @@ const Home = () => {
       <table>
         <thead>
           <tr>
-            <th>Pókemon Name</th>
-            <th>Pókemon Image</th>
+            <th>Name</th>
+            <th>Image</th>
           </tr>
         </thead>
         <tbody>
