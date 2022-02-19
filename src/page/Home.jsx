@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import {
-  getPokemons,
-  // getImagePokemons
-} from "../components/hook/servive";
+import { getPokemons } from "../components/hook/service";
 import Pagination from '../components/pagination/Pagination';
 
 const Home = () => {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
-    if(pokemons.length) getPokemons().then((data) => setPokemons(data));
-
-  }, [pokemons]);
+    if(pokemons.length <= 0) getPokemons().then((res => setPokemons(res)))
+  }
+  , [pokemons]);
 
   return(
     <>
@@ -24,10 +21,15 @@ const Home = () => {
         </thead>
         <tbody>
           {
-            pokemons.length > 0 && pokemons.map(({ name }, index) => (
-              < tr key={index} >
-                <td>{  name }</td>
-                {/* <img src={ image } alt={ name } /> */}
+            pokemons.length > 0 && pokemons.map(({ name, id }, index) => (
+                <tr key={index} >
+                <td>{name}</td>
+                <td>
+                  <img 
+                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`} 
+                    alt={ name} 
+                  />
+                </td>
               </tr >
             ))
           }
@@ -42,3 +44,4 @@ const Home = () => {
 }
 
 export default Home;
+

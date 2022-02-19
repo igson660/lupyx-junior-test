@@ -1,4 +1,4 @@
-import { getPokemons } from "../hook/servive"
+import { getPokemons } from "../hook/service"
 
 const Pagination = ({ setPokemons }) => {
   const hendlePokemons =  async ({ target }) => {
